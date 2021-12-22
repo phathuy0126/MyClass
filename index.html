@@ -1,81 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>        
+    <style>
         body {
-            background: linear-gradient(#bc01d1,#40004a);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;            
+            background: linear-gradient(#bc01d1, #40004a);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
+
+        ::selection {
+            color: #f492ff;
+        }
+
+        ::-webkit-scrollbar {
+            width: 13px;
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: red;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b30000;
+        }
+
         .container {
             height: 100%;
             min-height: 100vh;
+            width: 90%;
+            margin: auto;
         }
+
         h2 {
             width: fit-content;
             margin: 10px auto 20px;
             color: #fff;
         }
+
         .card {
             display: flex;
-            flex-wrap: wrap;            
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .card .card-item {            
+
+        .card .card-item {
             background: #24203b;
-            text-align: center;                    
+            text-align: center;
             width: 20%;
             min-width: 270px;
-            margin: 10px auto;
+            margin: 10px;
             border-radius: 7px;
-            color: #fff;                        
-        } 
+            color: #fff;
+        }
+
         .card .card-item .img {
             border-radius: 100px;
             overflow: hidden;
             width: 100px;
             height: 100px;
-            margin: 15px auto 10px;       
+            margin: 15px auto 10px;
         }
+
         .card .card-item .img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         .card .card-item .btn {
             display: flex;
-            justify-content: center;      
-            margin-bottom: 10px;      
+            justify-content: center;
+            margin-bottom: 10px;
         }
-        .card .card-item .btn button {
-            margin: 10px 5px;
-            padding: 7px 17px;
+
+        .card .card-item .btn a {
+            margin: 10px 5px;            
+            text-decoration: none;
             color: #fff;
             background: #bc01d1;
             border: none;
             outline: none;
             border-radius: 3px;
-            min-width: 80px;
+            min-width: 90px;
+            padding: 6px 0px;
             cursor: pointer;
+            font-size: .9em;
         }
-        .card .card-item .btn button.follow {
+
+        .card .card-item .btn a.follow {
             background: none;
             border: 2px #bc01d1 solid;
         }
+
         .card .card-item .cardFooter {
-            background: #1c192c;           
+            background: #1c192c;
             padding: 10px;
         }
-        .card .card-item .cardFooter .skills {                         
+
+        .card .card-item .cardFooter .skills {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;        
+            flex-wrap: wrap;
         }
+
         .card .card-item .cardFooter strong {
             font-size: .9em;
         }
+
         .card .card-item .cardFooter .skills .skill {
             border: 1px #bc01d1 solid;
             width: fit-content;
@@ -84,95 +125,123 @@
             border-radius: 3px;
             font-size: .7em;
         }
+
         @media screen and (max-width: 767.98px) {
             .card {
-            display: grid;
-            justify-content: flex-start;
-            grid-auto-columns: 80%;
-            grid-auto-flow: column;
-            overflow: auto;
-            overflow-y: hidden;
-            scroll-snap-type: x mandatory;
-            scroll-snap-stop: always;
-            -ms-touch-action: manipulation;
-            touch-action: manipulation;
-            -webkit-overflow-scrolling: touch;
-            scroll-padding: 1rem;
-            grid-template-columns: unset;
+                display: grid;
+                justify-content: flex-start;
+                grid-auto-columns: 80%;
+                grid-auto-flow: column;
+                overflow: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                scroll-snap-stop: always;
+                -ms-touch-action: manipulation;
+                touch-action: manipulation;
+                -webkit-overflow-scrolling: touch;
+                scroll-padding: 1rem;
+                grid-template-columns: unset;
             }
+
             .card::-webkit-scrollbar {
-              display: none;
-              width: 0;
+                display: none;
+                width: 0;
             }
-            .card > *{
-              scroll-snap-align: start;
+
+            .card>* {
+                scroll-snap-align: start;
             }
         }
-    </style>    
+
+        @media screen and (max-width: 400px) {
+            .container {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">   
-        <h2>Thiet Ke Web 01</h2>             
-        <div class="card"></div>        
+    <div class="container">
+        <h2>Thiet Ke Web 01</h2>
+        <div class="card"></div>
     </div>
-    <script>           
-        var card = document.querySelector('.card'); 
+    <script>
+        var card = document.querySelector('.card');
         var itemUser = [
             {
                 img: 'https://s120-ava-talk.zadn.vn/d/9/9/0/31/120/687f42aa2e8b086705243a1dbc20eccf.jpg',
-                name:'Huỳnh Phát Huy',
+                name: 'Huỳnh Phát Huy',
                 mssv: '2030140123',
-                address: 'Tiền Giang'
+                address: 'Tiền Giang',                
+                mail: 'phathuy0126@gmail.com',
+                phone: '0836970478'
             },
             {
                 img: 'https://s120-ava-talk.zadn.vn/e/2/9/2/32/120/43395b1777b69901ff2ed658b98fa437.jpg',
-                name:'Nguyễn Văn Hào',
+                name: 'Nguyễn Văn Hào',
                 mssv: '2030140124',
-                address: 'Sóc Trăng'
+                address: 'Sóc Trăng',
+                mail: '',
+                phone: ''
             },
             {
                 img: 'https://s120-ava-talk.zadn.vn/f/b/9/f/4/120/84039373a5abee3d771e718851b82778.jpg',
-                name:'Đoàn Duy Linh',
+                name: 'Đoàn Duy Linh',
                 mssv: '2030140125',
-                address: 'Bến Tre'
+                address: 'Bến Tre',
+                mail: '',
+                phone: ''
             },
             {
                 img: 'https://s120-ava-talk.zadn.vn/a/4/2/7/4/120/9dcd74c364b57f7ae2921d3097f9c01b.jpg',
-                name:'Tran Thai Son',
+                name: 'Tran Thai Son',
                 mssv: '2030140126',
-                address: 'Binh Thuan'
+                address: 'Binh Thuan',
+                mail: '',
+                phone: ''
             },
             {
                 img: 'https://s120-ava-talk.zadn.vn/f/b/9/f/4/120/84039373a5abee3d771e718851b82778.jpg',
-                name:'Vo Thien Man',
+                name: 'Vo Thien Man',
                 mssv: '2030140125',
-                address: 'Tp.HCM'
+                address: 'Tp.HCM',
+                mail: '',
+                phone: ''
             },
             {
                 img: 'https://s120-ava-talk.zadn.vn/d/e/5/f/2/120/23f9fce4bfe779a59cc1128a5dfd9958.jpg',
-                name:'Doan Duc Hung',
+                name: 'Doan Duc Hung',
                 mssv: '2030140127',
-                address: 'Tp.HCM'
+                address: 'Tp.HCM',
+                mail: '',
+                phone: ''
+            },
+            {
+                img: 'https://s120-ava-talk.zadn.vn/3/3/c/b/1/120/2116389716567de17bd9fead0da11121.jpg',
+                name: 'Le Duan',
+                mssv: '2030140125',
+                address: 'Dang cap nhat',
+                mail: '',
+                phone: ''
+            },
+            {
+                img: 'https://s120-ava-talk.zadn.vn/8/c/1/2/9/120/34c37af66f8c3fbe26b265bcf003d182.jpg',
+                name: 'Anh Tai',
+                mssv: '2030140125',
+                address: 'Tiền Giang',
+                mail: '',
+                phone: ''
             },
             {
                 img: 'https://s120-ava-talk.zadn.vn/f/b/9/f/4/120/84039373a5abee3d771e718851b82778.jpg',
-                name:'Le Duan',
+                name: 'Duy Khang',
                 mssv: '2030140125',
-                address: 'Dang cap nhat'
-            },
-            {
-                img: 'https://s120-ava-talk.zadn.vn/f/b/9/f/4/120/84039373a5abee3d771e718851b82778.jpg',
-                name:'Anh Tai',
-                mssv: '2030140125',
-                address: 'Dang cap nhat'
-            },
-            {
-                img: 'https://s120-ava-talk.zadn.vn/f/b/9/f/4/120/84039373a5abee3d771e718851b82778.jpg',
-                name:'Duy Khang',
-                mssv: '2030140125',
-                address: 'Dang cap nhat'
+                address: 'Tp.HCM',
+                mail: '',
+                phone: ''
             }
-        ]        
+        ]
         function cardItemUser(itemUser) {
             return `
                     <div class="card-item">
@@ -181,8 +250,8 @@
                         <div class="mssv">${itemUser.mssv}</div>
                         <div class="que">${itemUser.address}</div>
                         <div class="btn">
-                            <button class="message">Message</button>
-                            <button class="follow">follow</button>    
+                            <a href="mailto:${itemUser.mail}" class="message">Message</a>
+                            <a href="tel:${itemUser.phone}" class="follow">Call</a>    
                         </div>                        
                         <div class="cardFooter">
                             <strong>Skills</strong>                            
@@ -197,12 +266,13 @@
                             </div>
                         </div>
                     </div>
-                `            
+                `
         }
-        var mapItemUser = itemUser.map(cardItemUser) 
+        var mapItemUser = itemUser.map(cardItemUser)
         var html = mapItemUser.join('');
         card.innerHTML = html;
         console.log(mapItemUser.join(''))
     </script>
 </body>
+
 </html>
